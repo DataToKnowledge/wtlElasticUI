@@ -119,6 +119,8 @@ module elasticui.controllers {
             //request.from = this.indexVM.pageSize * (this.indexVM.page-1);
 
             var preReq = JSON.parse(JSON.stringify(request));
+            //console.log(preReq);
+            console.log(JSON.stringify(preReq));
             preReq['size'] = this.indexVM.pageSize;
             preReq['from'] = this.indexVM.pageSize * (this.indexVM.page - 1);
             queryWrapper.request = preReq;
@@ -133,6 +135,7 @@ module elasticui.controllers {
             //console.log(res);
 
             var res = this.http.post(this.esHost, queryWrapper);
+            console.log(res);
             var self = this;
             var rejection = this.q.defer();
 
